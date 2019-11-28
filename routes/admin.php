@@ -40,7 +40,10 @@ Route::group( [ 'middleware' => 'arbory.admin_auth' ], function () {
     Route::post( 'file-manager/upload', [
         'as' => 'filemanager.upload',
         'uses' => 'Admin\UploadController@upload'
-    ] );
+    ] )->middleware([array_merge(\Config::get('lfm.middlewares'), [
+        '\UniSharp\LaravelFilemanager\Middlewares\MultiUser',
+        '\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder',
+    ])]);
 } );
 
 
