@@ -52,7 +52,7 @@ module.exports = function (mix) {
 
     mix.copyDirectory(
         'vendor/unisharp/laravel-filemanager/public/',
-        'public/arbory/laravel-filemanager/'
+        'public/vendor/laravel-filemanager/'
     );
 
     mix.version();
